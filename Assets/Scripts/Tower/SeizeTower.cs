@@ -30,9 +30,10 @@ public class SeizeTower : MonoBehaviour
             {
                 nearMonster = NearestMonGO.GetComponent<MonsterClass>();
                 Bullet bullet = PoolManager.GetObject((int)PoolGameObjectType.bullet).GetComponent<Bullet>();
-                bullet.BulletFire(transform, nearMonster, TowerData.TowerType, TowerData.TowerEfficiency);
+                bullet.BulletFire(transform, nearMonster, TowerData.TowerType, TowerEffeciency);
+                transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
             }
-            yield return new WaitForSeconds(1f / (TowerData.AttackTerm * GameManager.instance.TowerAttackSpeed));
+            yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
 

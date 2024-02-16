@@ -29,6 +29,7 @@ public class WideTower : MonoBehaviour
             {
                 Enemy.GetComponent<MonsterClass>().getDamaged(TowerEffeciency);
             }
+            transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
             yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }

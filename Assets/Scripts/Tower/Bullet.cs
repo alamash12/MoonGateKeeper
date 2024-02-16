@@ -55,7 +55,7 @@ public class Bullet : MonoBehaviour
                 monsterClass.getDamaged(efficiency);
                 break;
             case InteractionType.Slow:
-                monsterClass.getSlowed(efficiency);
+                monsterClass.getSlowed(1 - efficiency);
                 break;
             case InteractionType.knockback:
                 monsterClass.getKnockBacked(efficiency);

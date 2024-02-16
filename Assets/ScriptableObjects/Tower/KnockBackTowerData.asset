@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: KnockBackTowerData
   m_EditorClassIdentifier: 
   towerType: 3
-  towerEfficiency: 4
+  towerEfficiency: 1
   attackTerm: 1

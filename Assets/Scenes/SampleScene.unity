@@ -1673,6 +1673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 844341718}
   - component: {fileID: 844341717}
+  - component: {fileID: 844341719}
   m_Layer: 0
   m_Name: SeizeTower
   m_TagString: Untagged
@@ -1748,6 +1749,27 @@ Transform:
   - {fileID: 2018618626}
   m_Father: {fileID: 167139714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &844341719
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844341716}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 729f73c97c1920342b67838313dd0b47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &940221938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,6 +2597,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1365364072}
   - component: {fileID: 1365364071}
+  - component: {fileID: 1365364073}
   m_Layer: 0
   m_Name: BaseTower
   m_TagString: Untagged
@@ -2650,6 +2673,27 @@ Transform:
   - {fileID: 819890284}
   m_Father: {fileID: 167139714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1365364073
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365364070}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 729f73c97c1920342b67838313dd0b47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1425274420
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,6 +2838,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1427728462}
   - component: {fileID: 1427728461}
+  - component: {fileID: 1427728463}
   m_Layer: 0
   m_Name: KnockTower
   m_TagString: Untagged
@@ -2869,6 +2914,27 @@ Transform:
   - {fileID: 1000225486}
   m_Father: {fileID: 167139714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1427728463
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427728460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 729f73c97c1920342b67838313dd0b47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1509738180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3513,6 +3579,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026115018}
   - component: {fileID: 2026115017}
+  - component: {fileID: 2026115019}
   m_Layer: 0
   m_Name: SlowTower
   m_TagString: Untagged
@@ -3588,6 +3655,27 @@ Transform:
   - {fileID: 748091139}
   m_Father: {fileID: 167139714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2026115019
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026115016}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 729f73c97c1920342b67838313dd0b47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2028031237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3913,6 +4001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2097664975}
   - component: {fileID: 2097664974}
+  - component: {fileID: 2097664976}
   m_Layer: 0
   m_Name: WideTower
   m_TagString: Untagged
@@ -3988,6 +4077,27 @@ Transform:
   - {fileID: 726657316}
   m_Father: {fileID: 167139714}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2097664976
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097664973}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 729f73c97c1920342b67838313dd0b47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2101478256
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,13 +45,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLifeText();
-        Time.timeScale = 5f;
+        Time.timeScale = 1.5f;
     }
     public void StartStage()
     {
         level++;
         killCount = 0;
-        Debug.Log($"스테이지 {level} 시작");
         if (level <= 5)
         {
             rabCount = 5; rabTier = level;
@@ -65,7 +64,7 @@ public class GameManager : MonoBehaviour
         else if (level <= 15)
         {
             rabCount = 10; rabTier = 10;
-            ChtCount = 0; ChtTier = level - 10;
+            ChtCount = 5; ChtTier = level - 10;
         }
         else if (level <= 20)
         {

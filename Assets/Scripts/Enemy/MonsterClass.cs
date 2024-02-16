@@ -16,6 +16,7 @@ public class MonsterClass : MonoBehaviour
     public int monsterTier;
     public bool isSlowed;
     public float monsterSpeed;
+    bool isActive;
 
     void Awake()
     {
@@ -81,7 +82,7 @@ public class MonsterClass : MonoBehaviour
 
     public void getKnockBacked(float Range)
     {
-        StartCoroutine(KnockBackCoroutine(Range));
+        if(isActive) StartCoroutine(KnockBackCoroutine(Range));
     }
 
     IEnumerator KnockBackCoroutine(float range)
@@ -95,6 +96,7 @@ public class MonsterClass : MonoBehaviour
 
         while (elapsedTime < duration)
         {
+            if(!isActive) yield break;
             // 현재 시간에 따른 보간값 계산
             float t = elapsedTime / duration;
             transform.position = Vector3.Lerp(startPosition, targetPosition, t);
@@ -126,6 +128,11 @@ public class MonsterClass : MonoBehaviour
         {
             monsterHealth += GameManager.instance.level - 20;
         }
+    }
+
+    private void OnDisable()
+    {
+        isActive  = false;
     }
 }
 
