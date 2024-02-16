@@ -6,11 +6,7 @@ using UnityEngine;
 public class MonsterTierByColor : ScriptableObject
 {
     [SerializeField]
-    private int monsterTier;
-    public int MosnterTier { get { return monsterTier; } }
-
-    [SerializeField]
-    private Color monsterColor;
-    public Color MonsterColor { get { return monsterColor; } }
+    private Color [] monsterColor = new Color[10];
+    public Color [] MonsterColor { get { return monsterColor; } }
 }
 

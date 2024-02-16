@@ -16,5 +16,5 @@ MonoBehaviour:
   attackDamage: 0
   attackSpeed: 0
   maxHealth: 0
-  moveSpeed: 0
+  moveSpeed: 2
   killReward: 0
