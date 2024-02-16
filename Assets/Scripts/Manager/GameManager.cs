@@ -43,12 +43,15 @@ public class GameManager : MonoBehaviour
     private int bestStage;
     public TMP_Text bestStageText;
 
-
+    public static SoundManager Sound { get { return instance._soundManager; } }
+    SoundManager _soundManager = new SoundManager();
 
     private void Start()    
     {
         UpdateLifeText();
+        Time.timeScale = 4f;
         bestStage = PlayerPrefs.GetInt("BestStage", 0);
+        SoundManager.instance.Play(UI_Define.BGM.MainBGM);
     }
 
     public void StartStage()

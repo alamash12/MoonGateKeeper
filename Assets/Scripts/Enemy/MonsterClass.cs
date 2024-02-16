@@ -82,7 +82,7 @@ public class MonsterClass : MonoBehaviour
 
     public void getKnockBacked(float Range)
     {
-        if (gameObject.activeSelf) StartCoroutine(KnockBackCoroutine(Range));
+        if(isActive) StartCoroutine(KnockBackCoroutine(Range));
     }
 
     IEnumerator KnockBackCoroutine(float range)
@@ -96,7 +96,7 @@ public class MonsterClass : MonoBehaviour
 
         while (elapsedTime < duration)
         {
-            if(!gameObject.activeSelf) yield break;
+            if(!isActive) yield break;
             // 현재 시간에 따른 보간값 계산
             float t = elapsedTime / duration;
             transform.position = Vector3.Lerp(startPosition, targetPosition, t);

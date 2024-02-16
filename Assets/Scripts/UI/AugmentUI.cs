@@ -43,9 +43,6 @@ public class AugmentUI : MonoBehaviour
         ShowAugment();
     }
 
-    /// <summary>
-    /// 출현 가능한 증강 3개 뽑아와서 그 증강에 대응되는 변화 호출. addlistner로 해당 버튼에 그 증강 기능 구현.
-    /// </summary>
     void ShowAugment()
     {
         int[] AugmentArray = GetThreeValidNumbers(CheckValidNumber());
