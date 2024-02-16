@@ -39,10 +39,10 @@ public class MonsterSpawner : MonoBehaviour
     {
         for(int i = 0; i < rabbitCount; i++)
         {
-            GameObject rab = PoolManager.GetObject(6);
-            rab.transform.position = RabbitSpawnPoint.position;
-            Color nowRabColor = tierByColor.MonsterColor[rabbitGrade - 1];
-            rab.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowRabColor);
+            //GameObject rab = 
+            //rab.transform.position = RabbitSpawnPoint.position;
+            //Color nowRabColor = tierByColor.MonsterColor[rabbitGrade - 1];
+            //rab.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowRabColor);
             yield return new WaitForSeconds(1f / RabbitSpawnRate); // 스폰 간격 설정
         }
     }
@@ -51,10 +51,10 @@ public class MonsterSpawner : MonoBehaviour
     {
         for (int i = 0; i < chtuluCount; i++)
         {
-            GameObject Cht = PoolManager.GetObject(7);
-            Cht.transform.position = ChtuluSpawnPoint.position;
-            Color nowChtColor = tierByColor.MonsterColor[chtuluGrade - 1];
-            Cht.GetComponent<MonsterClass>().setGrade(chtuluGrade, nowChtColor);
+            //GameObject Cht = 
+            //Cht.transform.position = ChtuluSpawnPoint.position;
+            //Color nowChtColor = tierByColor.MonsterColor[chtuluGrade - 1];
+            //Cht.GetComponent<MonsterClass>().setGrade(chtuluGrade, nowChtColor);
             yield return new WaitForSeconds(1f / ChtuluSpawnRate); // 스폰 간격 설정
         }
     }
