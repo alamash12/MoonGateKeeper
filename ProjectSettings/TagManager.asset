@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tower
   - monster
+  - Out
   layers:
   - Default
   - TransparentFX

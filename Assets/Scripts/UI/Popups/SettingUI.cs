@@ -8,9 +8,10 @@ using UnityEngine.UI;
 
 public class SettingUI : UI_Base
 {
+    public static SettingUI Instance;
     enum Texts
     {
-        
+
     }
 
     enum Buttons
@@ -23,8 +24,11 @@ public class SettingUI : UI_Base
         BGMSlider,
         SFXSlider,
     }
-
-    private void Start()
+    public void Awake()
+    {
+        Instance = this;
+    }
+    public void Start()
     {
         Bind<TMP_Text>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
@@ -33,11 +37,16 @@ public class SettingUI : UI_Base
         BindSliderEvt();
         BindEvent(Get<Button>((int)Buttons.CloseButton).gameObject, Close);
 
+        Get<Slider>((int)Sliders.BGMSlider).value = 1f - (SoundManager.instance.BGMVolume);
+        Get<Slider>((int)Sliders.SFXSlider).value = 1f - (SoundManager.instance.SFXVolume);
+        gameObject.SetActive(false);
+
     }
 
     void Close(PointerEventData evt)
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
     void BindSliderEvt()
     {
@@ -49,14 +58,20 @@ public class SettingUI : UI_Base
         float volume;
         if (Sound == UI_Define.Sounds.BGM)
         {
-            volume = Get<Slider>((int)Sliders.BGMSlider).value;
+            volume = 1 - (Get<Slider>((int)Sliders.BGMSlider).value);
             SoundManager.instance.BGMVolume = volume;
         }
         else
         {
-            volume = Get<Slider>((int)Sliders.SFXSlider).value;
+            volume = 1 - (Get<Slider>((int)Sliders.SFXSlider).value);
             SoundManager.instance.SFXVolume = volume;
         }
         SoundManager.instance.SetVolume(Sound, volume);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        gameObject.SetActive(true);
     }
 }

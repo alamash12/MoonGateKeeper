@@ -26,6 +26,8 @@ public class SoundManager : MonoBehaviour
         }
         Init();
     }
+
+  
     public void Init()
     {
         GameObject root = GameObject.Find("@Sound");
@@ -142,5 +144,10 @@ public class SoundManager : MonoBehaviour
             audioSource.Stop();
         }
         _audioClips.Clear();
+    }
+
+    public void ButtonClick()
+    {
+        Play(UI_Define.SFX.ButtonClick);
     }
 }

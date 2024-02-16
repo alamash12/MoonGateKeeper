@@ -32,6 +32,7 @@ public class SlowTower : MonoBehaviour
                 Bullet bullet = PoolManager.GetObject((int)PoolGameObjectType.bullet).GetComponent<Bullet>();
                 bullet.BulletFire(transform, nearMonster, TowerData.TowerType, TowerEffeciency);
                 transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
+                SoundManager.instance.Play(UI_Define.SFX.Freeze_turret);
             }
             yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
         }

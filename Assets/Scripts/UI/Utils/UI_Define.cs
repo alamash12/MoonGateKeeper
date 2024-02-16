@@ -13,10 +13,19 @@ public class UI_Define
     public enum BGM
     {
         MainBGM,
+        StageBGM,
         MaxCount
     }
     public enum SFX
     {
+        ButtonClick,
+        Upgrade_select,
+        rabbit_cthulu_hit,
+        Normal_turret,
+        Tank_turret,
+        Ironed_turret,
+        Freeze_turret,
+        Electric_turret,
         MaxCount
     }
 

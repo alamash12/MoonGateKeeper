@@ -186,4 +186,9 @@ public class GameManager : MonoBehaviour
         NowTowerCount++;
         TowerGOs[NowTowerCount-1].gameObject.SetActive(true);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

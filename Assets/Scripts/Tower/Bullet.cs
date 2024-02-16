@@ -45,6 +45,10 @@ public class Bullet : MonoBehaviour
             InteractionWithMonster(collision.gameObject.GetComponent<MonsterClass>(), efficiency);
             PoolManager.ReturnObject(gameObject, ((int)PoolGameObjectType.bullet));
         }
+        if (collision.gameObject.tag == "Out")
+        {
+            PoolManager.ReturnObject(gameObject, ((int)PoolGameObjectType.bullet));
+        }
     }
 
     private void InteractionWithMonster(MonsterClass monsterClass, float efficiency)
@@ -63,8 +67,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnBecameInvisible() // 화면 밖으로 나갔을 때 호출되는 함수
-    {
-        PoolManager.ReturnObject(gameObject, ((int)PoolGameObjectType.bullet));
-    }
+    
+    
 }

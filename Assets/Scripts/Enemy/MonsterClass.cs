@@ -37,6 +37,7 @@ public class MonsterClass : MonoBehaviour
         {
             int nowHp = GameManager.instance.entireHP;
             GameManager.instance.setHP(nowHp-1);
+
             ReturnToPool();
         }
     }
@@ -46,7 +47,8 @@ public class MonsterClass : MonoBehaviour
     {
         float tempHP = monsterHealth;
         monsterHealth -= Damage;
-        if(monsterHealth < 0)
+        SoundManager.instance.Play(UI_Define.SFX.rabbit_cthulu_hit);
+        if (monsterHealth < 0)
         {
             if (tempHP < 0) return;
             ReturnToPool();
