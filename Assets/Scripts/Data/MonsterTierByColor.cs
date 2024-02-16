@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New TowerData", menuName = "Tower Data", order = 51)]
+[CreateAssetMenu(fileName = "TierByColor", menuName = "ScriptableObjects/TierbyColor", order = 51)]
 public class MonsterTierByColor : ScriptableObject
 {
     [SerializeField]

@@ -8,10 +8,11 @@ public enum TowerType
     Slow,
     Power,
     KnockBack,
+    AreaAttack,
     MaxCount
 }
 
-[CreateAssetMenu(fileName = "New TowerData", menuName = "Tower Data", order = 51)]
+[CreateAssetMenu(fileName = "TowerData", menuName = "ScriptableObjects/TowerData", order = 51)]
 public class TowerData : ScriptableObject
 {
 
@@ -24,22 +25,8 @@ public class TowerData : ScriptableObject
     public int TowerLevel { get { return towerLevel; } }
 
     [SerializeField]
-    private int upgradeCost1;
-    public int UpgradeCost1 { get { return upgradeCost1; } }
-
-    [SerializeField]
-    private int upgradeCost2;
-    public int UpgradeCost2 { get { return upgradeCost2; } }
-
-    [SerializeField]
-    private float towerEfficiency0;
-    public float TowerEfficiency0 { get { return towerEfficiency0; } }
-    [SerializeField]
-    private float towerEfficiency1;
-    public float TowerEfficiency1 { get { return towerEfficiency1; } }
-    [SerializeField]
-    private float towerEfficiency2;
-    public float TowerEfficiency2 { get { return towerEfficiency2; } }
+    private float towerEfficiency;
+    public float TowerEfficiency { get { return towerEfficiency; } }
 
     [SerializeField]
     private float attackTerm;

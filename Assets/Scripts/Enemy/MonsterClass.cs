@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MonsterClass : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private MonsterData monsterData;
+    private MonsterTierByColor tierAndColor;
     void Start()
     {
         

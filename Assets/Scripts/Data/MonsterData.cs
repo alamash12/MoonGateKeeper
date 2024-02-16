@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New MonsterData", menuName = "Monster Data", order = 51)]
+[CreateAssetMenu(fileName = "MonsterData", menuName = "ScriptableObjects/MonsterData", order = 51)]
 public class MonsterData : ScriptableObject
 {
     [SerializeField]
@@ -23,11 +23,5 @@ public class MonsterData : ScriptableObject
     [SerializeField]
     private int killReward;
     public int KillReward { get { return killReward; } }
-    [SerializeField]
-    private Color monsterColor;
-    public Color MonsterColor { get { return monsterColor; } }
-    [SerializeField]
-    private int monsterTier;
-    public int MonsterTier { get { return monsterTier; } }
 
 }
