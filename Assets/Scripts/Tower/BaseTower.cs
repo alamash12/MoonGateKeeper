@@ -27,13 +27,17 @@ public class BaseTower : MonoBehaviour
         yield return new WaitForSeconds(FirstAttackTerm);
         while(true)
         {
-            GameObject obj = PoolManager.GetObject((int)towerType);
-            Bullet bullet = obj.GetComponent<Bullet>();
-            if (bullet != null)
+            if (nearMonster != null)
             {
-                bullet.BulletFire(transform, nearMonster, towerType, TowerData.TowerEfficiency);
+                GameObject obj = PoolManager.GetObject((int)towerType);
+                Bullet bullet = obj.GetComponent<Bullet>();
+                Debug.Log(nearMonster);
+                if(bullet != null)
+                {
+                    bullet.BulletFire(transform, nearMonster, towerType, TowerData.TowerEfficiency);
+                }
             }
-            yield return new WaitForSeconds(TowerData.AttackTerm);
+            yield return new WaitForSeconds(1f/*TowerData.AttackTerm*/);
         }
     }
 

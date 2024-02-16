@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
     public TowerData towerData;
-    public float bulletSpeed;
+    private float bulletSpeed;
     private InteractionType interactionType;
     private float efficiency;
     private int returnPool; // 풀에 반환하기 위해서 타워타입을 받아와서 그에 맞춰서 반환
@@ -22,12 +22,9 @@ public class Bullet : MonoBehaviour
     }
     public void BulletFire(Transform spawnerPos, MonsterClass monster, TowerType towerType, float efficiency)
     {
-        if(monster == null)
-        {
-            return;
-        }
-        Vector3 direction = (spawnerPos.position - monster.transform.position).normalized;
+        Debug.Log("BulletFire Call");
         gameObject.transform.position = spawnerPos.position;
+        Vector3 direction = (spawnerPos.position - monster.transform.position).normalized;
         rb.velocity = direction * bulletSpeed;
         returnPool = (int)towerType;
         switch (towerType)
