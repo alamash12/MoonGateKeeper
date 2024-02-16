@@ -145,6 +145,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: e542e41b2130c414a86e6ee99f982157, type: 2}
+  monsterTier: 0
+  isSlowed: 0
+  monsterSpeed: 0
 --- !u!95 &5377195836368720535
 Animator:
   serializedVersion: 5
@@ -155,7 +158,7 @@ Animator:
   m_GameObject: {fileID: 4717967297514636890}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 72547d93d6ad3534b9dd1ad98ce4a099, type: 2}
+  m_Controller: {fileID: 9100000, guid: 559d40b6bb3c3a64b83d0760f1b5b5be, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

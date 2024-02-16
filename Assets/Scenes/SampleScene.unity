@@ -851,14 +851,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a34daef6ebee941b2a402e7967ec7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tierByColor: {fileID: 0}
-  spawnCount: 0
+  tierByColor: {fileID: 11400000, guid: 7740d35a7f2106d448379fa2de90feb6, type: 2}
+  rabbitSpawnCount: 0
+  chtuluSpawnCount: 0
   RabbitPrefab: {fileID: 4717967297514636890, guid: 31d06d2c8e0d2fb4a9a9d72bb2339d8b, type: 3}
   ChtuluPrefab: {fileID: 7622638611774661594, guid: edb6fdb32389a064bbd9c85b46e668ae, type: 3}
   RabbitSpawnRate: 0.5
   ChtuluSpawnRate: 0.7
   RabbitSpawnPoint: {fileID: 1288051253}
   ChtuluSpawnPoint: {fileID: 940221939}
+  rabbitGrade: 0
+  chtuluGrade: 0
 --- !u!4 &2147293442
 Transform:
   m_ObjectHideFlags: 0

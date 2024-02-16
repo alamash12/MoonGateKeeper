@@ -32,7 +32,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        startWave(8, 2, 0, 2);
+        startWave(8, 2, 5, 2);
     }
 
     IEnumerator SpawnRabbit(int rabbitCount)
@@ -52,7 +52,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             GameObject Cht = Instantiate(ChtuluPrefab, ChtuluSpawnPoint.position, transform.rotation); // 몬스터 스폰
             Color nowChtColor = tierByColor.MonsterColor[chtuluGrade - 1];
-            Cht.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowChtColor);
+            Cht.GetComponent<MonsterClass>().setGrade(chtuluGrade, nowChtColor);
             yield return new WaitForSeconds(1f / ChtuluSpawnRate); // 스폰 간격 설정
         }
     }
