@@ -21,10 +21,6 @@ public class TowerData : ScriptableObject
     public TowerType TowerType { get { return towerType; } }
 
     [SerializeField]
-    private int towerLevel;
-    public int TowerLevel { get { return towerLevel; } }
-
-    [SerializeField]
     private float towerEfficiency;
     public float TowerEfficiency { get { return towerEfficiency; } }
 
