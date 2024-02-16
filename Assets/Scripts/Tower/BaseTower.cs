@@ -37,6 +37,7 @@ public class BaseTower : MonoBehaviour
                     bullet.BulletFire(transform, nearMonster, towerType, TowerData.TowerEfficiency);
                 }
             }
+            //1f 나누기 뒤에 Twerdata.AttackTerm이랑 Managers.inst.TowerAttackSpeed곱한거 나눠줘
             yield return new WaitForSeconds(1f/*TowerData.AttackTerm*/);
         }
     }
