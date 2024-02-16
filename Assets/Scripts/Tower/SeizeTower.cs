@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Define; 
+using static Define;
 
-public class BaseTower : MonoBehaviour
+public class SeizeTower : MonoBehaviour
 {
-    public static BaseTower Instance;
+    public static SeizeTower instance;
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
     public TowerData TowerData;
     public float TowerEffeciency;
@@ -35,6 +35,5 @@ public class BaseTower : MonoBehaviour
             yield return new WaitForSeconds(1f / (TowerData.AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
-
 
 }

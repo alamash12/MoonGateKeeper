@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Define; 
+using static Define;
 
-public class BaseTower : MonoBehaviour
+public class SlowTower : MonoBehaviour
 {
-    public static BaseTower Instance;
+    public static SlowTower instance;
     private void Awake()
     {
-        Instance = this;
+        instance = this;
     }
     public TowerData TowerData;
     public float TowerEffeciency;
     public float AttackTerm;
-    public MonsterClass nearMonster;
+    public MonsterClass nearMonster; // 이따가 연결할거임
     public void Start()
     {
         TowerEffeciency = TowerData.TowerEfficiency;
@@ -35,6 +35,5 @@ public class BaseTower : MonoBehaviour
             yield return new WaitForSeconds(1f / (TowerData.AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
-
 
 }

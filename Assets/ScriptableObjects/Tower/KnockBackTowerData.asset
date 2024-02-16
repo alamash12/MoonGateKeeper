@@ -13,10 +13,5 @@ MonoBehaviour:
   m_Name: KnockBackTowerData
   m_EditorClassIdentifier: 
   towerType: 3
-  towerLevel: 0
-  upgradeCost1: 0
-  upgradeCost2: 0
-  towerEfficiency0: 0
-  towerEfficiency1: 0
-  towerEfficiency2: 0
-  attackTerm: 0
+  towerEfficiency: 4
+  attackTerm: 1

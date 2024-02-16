@@ -1545,7 +1545,7 @@ Transform:
   m_GameObject: {fileID: 726657315}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.502, y: 0, z: 0}
+  m_LocalPosition: {x: -0.98, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1560,11 +1560,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 726657315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bf2599e3c4d834595678f9053af975, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c5b34e3ef627cf49b05c9df312bc7be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 139955420f690c44e82d7ba072f477e9, type: 2}
-  bulletPrefab: {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  TowerData: {fileID: 11400000, guid: 0be370e9af564c643a354bdddcdc4b6b, type: 2}
+  TowerEffeciency: 0
+  AttackTerm: 0
   nearMonster: {fileID: 0}
 --- !u!1 &748091138
 GameObject:
@@ -1582,7 +1583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &748091139
 Transform:
   m_ObjectHideFlags: 0
@@ -1592,7 +1593,7 @@ Transform:
   m_GameObject: {fileID: 748091138}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.502, y: 0, z: 0}
+  m_LocalPosition: {x: -2.41, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1607,11 +1608,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 748091138}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bf2599e3c4d834595678f9053af975, type: 3}
+  m_Script: {fileID: 11500000, guid: 52f19ea458505104dabf2d4f4fffc7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 139955420f690c44e82d7ba072f477e9, type: 2}
-  bulletPrefab: {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  TowerData: {fileID: 11400000, guid: a2d354c63a78b824b9ba8ea5c5bc76d6, type: 2}
+  TowerEffeciency: 0
+  AttackTerm: 0
   nearMonster: {fileID: 0}
 --- !u!1 &819890283
 GameObject:
@@ -1657,8 +1659,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bf2599e3c4d834595678f9053af975, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 139955420f690c44e82d7ba072f477e9, type: 2}
-  bulletPrefab: {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  TowerData: {fileID: 11400000, guid: b4ef08f6ffa373246ae4d7aed6f0ac5a, type: 2}
+  TowerEffeciency: 0
+  AttackTerm: 0
   nearMonster: {fileID: 0}
 --- !u!1 &844341716
 GameObject:
@@ -1792,7 +1795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1000225486
 Transform:
   m_ObjectHideFlags: 0
@@ -1802,7 +1805,7 @@ Transform:
   m_GameObject: {fileID: 1000225485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.502, y: 0, z: 0}
+  m_LocalPosition: {x: -0.79, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1817,11 +1820,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000225485}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bf2599e3c4d834595678f9053af975, type: 3}
+  m_Script: {fileID: 11500000, guid: 73d2504ede8d633438c1eb8f8b19ed1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 139955420f690c44e82d7ba072f477e9, type: 2}
-  bulletPrefab: {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  TowerData: {fileID: 11400000, guid: 56522c4888a4ab3458faac2d6f31d987, type: 2}
+  TowerEffeciency: 0
+  AttackTerm: 0
   nearMonster: {fileID: 0}
 --- !u!1 &1026891015
 GameObject:
@@ -3346,7 +3350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2018618626
 Transform:
   m_ObjectHideFlags: 0
@@ -3356,7 +3360,7 @@ Transform:
   m_GameObject: {fileID: 2018618625}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.502, y: 0, z: 0}
+  m_LocalPosition: {x: -2.36, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3371,11 +3375,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2018618625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9bf2599e3c4d834595678f9053af975, type: 3}
+  m_Script: {fileID: 11500000, guid: a614d0b9bcec9294f850f35a475214a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TowerData: {fileID: 11400000, guid: 139955420f690c44e82d7ba072f477e9, type: 2}
-  bulletPrefab: {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  TowerEffeciency: 0
+  AttackTerm: 0
   nearMonster: {fileID: 0}
 --- !u!1 &2025903331
 GameObject:

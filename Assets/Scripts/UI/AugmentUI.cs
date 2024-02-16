@@ -115,22 +115,26 @@ public class AugmentUI : MonoBehaviour
                 GameManager.instance.OpenTower();
                 break;
             case AugmentType.UpgradeBase:
-                Debug.Log("게임매니저가 기본포탑강화해줄것");
+                BaseTower.Instance.TowerEffeciency += 2.5f;
                 break;
             case AugmentType.UpgradeSeize:
-                Debug.Log("게임매니저가 시즈포탑강화해줄것");
+                SeizeTower.instance.TowerEffeciency += 6f;
                 break;
             case AugmentType.UpgradeSlow:
-                Debug.Log("게임매니저가 슬로우포탑강화해줄것");
+                SlowTower.instance.TowerEffeciency += 0.1f;
                 break;
             case AugmentType.UpgradeKnock:
-                Debug.Log("게임매니저가 넉백포탑강화해줄것");
+                KnockTower.Instance.TowerEffeciency += 0.5f;
                 break;
             case AugmentType.UpgradeWide:
-                Debug.Log("게임매니저가 광역포탑강화해줄것");
+                WideTower.Instance.TowerEffeciency += 2.5f;
                 break;
             case AugmentType.UpgradeAll:
-                Debug.Log("게임매니저가 모든포탑강화해줄것");
+                BaseTower.Instance.TowerEffeciency += 0.5f;
+                SeizeTower.instance.TowerEffeciency += 1.2f;
+                SlowTower.instance.TowerEffeciency += 0.04f;
+                KnockTower.Instance.TowerEffeciency += 0.2f;
+                WideTower.Instance.TowerEffeciency += 0.5f;
                 break;
             case AugmentType.MonSlow:
                 GameManager.instance.MonsterMoveSpeed -= 0.05f;
@@ -147,9 +151,12 @@ public class AugmentUI : MonoBehaviour
             case AugmentType.LifeUp:
                 GameManager.instance.setHP(GameManager.instance.entireHP + 1);
                 break;
-            case AugmentType.Reroll:
-                ShowAugment();
-                break;
+        }
+
+        if(augmentType == AugmentType.Reroll)
+        {
+            ShowAugment();
+            return;
         }
 
         GameManager.instance.StartStage();

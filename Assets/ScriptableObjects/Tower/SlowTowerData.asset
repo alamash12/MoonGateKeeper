@@ -12,11 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0792b035258a17f43a160b6797cb682a, type: 3}
   m_Name: SlowTowerData
   m_EditorClassIdentifier: 
-  towerType: 1
-  towerLevel: 0
-  upgradeCost1: 0
-  upgradeCost2: 0
-  towerEfficiency0: 0
-  towerEfficiency1: 0
-  towerEfficiency2: 0
-  attackTerm: 0
+  towerType: 2
+  towerEfficiency: 0.1
+  attackTerm: 1

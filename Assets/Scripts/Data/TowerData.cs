@@ -5,7 +5,7 @@ using UnityEngine;
 public enum TowerType
 {
     Base = 0,
-    Power,
+    Seize,
     Slow,
     KnockBack,
     AreaAttack,

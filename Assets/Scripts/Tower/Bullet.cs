@@ -6,9 +6,11 @@ using static Define;
 public class Bullet : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public SpriteRenderer SR;
     private float bulletSpeed = 10;
     private InteractionType interactionType;
     private float efficiency;
+    public Sprite[] BulletSprites;
     public enum InteractionType
     {
         Damage,
@@ -21,6 +23,7 @@ public class Bullet : MonoBehaviour
         gameObject.transform.position = spawnerPos.position;
         Vector3 direction = -(spawnerPos.position - monster.transform.position).normalized;
         rb.velocity = direction * bulletSpeed;
+        SR.sprite = BulletSprites[(int)towerType];
         switch (towerType)
         {
             case TowerType.Slow:

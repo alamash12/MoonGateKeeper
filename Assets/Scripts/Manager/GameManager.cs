@@ -41,6 +41,11 @@ public class GameManager : MonoBehaviour
     bool tempTowerSpeedUp;
 
     //1초 후에 웨이브 시작
+
+    private void Start()
+    {
+        UpdateLifeText();
+    }
     public void StartStage()
     {
         StartCoroutine(StartStageCor()); 
@@ -81,6 +86,11 @@ public class GameManager : MonoBehaviour
         MonsterSpawner.Instance.SpawnWave(rabCount, rabTier, ChtCount, ChtTier);
     }
 
+    public void UpKillCount()
+    {
+        killCount++;
+        CheckStageEnd();
+    }
     public void CheckStageEnd()
     {
         if(killCount == NowWaveMonsterCount) { EndStage(); }

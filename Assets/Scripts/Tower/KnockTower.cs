@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Define; 
+using static Define;
 
-public class BaseTower : MonoBehaviour
+public class KnockTower : MonoBehaviour
 {
-    public static BaseTower Instance;
+    public static KnockTower Instance;
     private void Awake()
     {
         Instance = this;
@@ -35,6 +35,4 @@ public class BaseTower : MonoBehaviour
             yield return new WaitForSeconds(1f / (TowerData.AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
-
-
 }

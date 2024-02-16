@@ -34,7 +34,8 @@ public class MonsterClass : MonoBehaviour
     {
         if(collision.gameObject.tag == "Tower")
         {
-            GameManager.instance.setHP(GameManager.instance.entireHP -1 );
+            int nowHp = GameManager.instance.entireHP;
+            GameManager.instance.setHP(nowHp-1);
             ReturnToPool();
         }
     }
@@ -42,12 +43,12 @@ public class MonsterClass : MonoBehaviour
   
     public void getDamaged(float Damage)
     {
+        float tempHP = monsterHealth;
         monsterHealth -= Damage;
         if(monsterHealth < 0)
         {
+            if (tempHP < 0) return;
             ReturnToPool();
-            GameManager.instance.killCount++;
-            GameManager.instance.CheckStageEnd();
         }
     }
 
@@ -61,6 +62,9 @@ public class MonsterClass : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 풀로 돌아가면 킬 카운트가 올라감
+    /// </summary>
     void ReturnToPool()
     {
         if (monsterData.MName == MonsterData.monsterName.Rabbit)
@@ -71,6 +75,7 @@ public class MonsterClass : MonoBehaviour
         {
             PoolManager.ReturnObject(gameObject, (int)PoolGameObjectType.Chtulu);
         }
+        GameManager.instance.UpKillCount();
     }
 
 
