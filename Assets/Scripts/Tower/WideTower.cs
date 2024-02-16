@@ -14,6 +14,7 @@ public class WideTower : MonoBehaviour
     public float TowerEffeciency;
     public float AttackTerm;
     public MonsterClass nearMonster; // 이따가 연결할거임
+    public Animator animator;
     public void Start()
     {
         TowerEffeciency = TowerData.TowerEfficiency;
@@ -30,6 +31,7 @@ public class WideTower : MonoBehaviour
                 Enemy.GetComponent<MonsterClass>().getDamaged(TowerEffeciency);
             }
             transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
+            animator.SetTrigger("Shoot");
             yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
