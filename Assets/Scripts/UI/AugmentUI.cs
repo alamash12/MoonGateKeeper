@@ -112,7 +112,7 @@ public class AugmentUI : MonoBehaviour
         switch (augmentType)
         {
             case AugmentType.AddTower:
-                Debug.Log("게임매니저가 추가해줄것");
+                GameManager.instance.OpenTower();
                 break;
             case AugmentType.UpgradeBase:
                 Debug.Log("게임매니저가 기본포탑강화해줄것");
@@ -145,13 +145,14 @@ public class AugmentUI : MonoBehaviour
                 GameManager.instance.TempTowerSpeedUP();
                 break;
             case AugmentType.LifeUp:
-                GameManager.instance.entireHP++;
+                GameManager.instance.setHP(GameManager.instance.entireHP + 1);
                 break;
             case AugmentType.Reroll:
                 ShowAugment();
                 break;
         }
-        //게임매니저가 1초후에 웨이브 시작해주면 됨
+
+        GameManager.instance.StartStage();
         gameObject.SetActive(false);
     }
 

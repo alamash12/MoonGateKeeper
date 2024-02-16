@@ -34,7 +34,7 @@ public class MonsterClass : MonoBehaviour
     {
         if(collision.gameObject.tag == "Tower")
         {
-            GameManager.instance.setHP(GameManager.instance.entireHP--);
+            GameManager.instance.setHP(GameManager.instance.entireHP -1 );
             ReturnToPool();
         }
     }

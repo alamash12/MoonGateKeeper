@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public int entireHP = 5;
+    public TMP_Text lifeText;
     public int level = 0; 
     int rabCount;
     int rabTier;
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
     public int killCount;
     public int NowWaveMonsterCount;
     [HideInInspector] public int NowTowerCount = 1;
+    public GameObject[] TowerGOs;
     [HideInInspector] public float MonsterMoveSpeed = 1f;
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
@@ -103,6 +106,7 @@ public class GameManager : MonoBehaviour
     public void setHP(int hp)
     {
         entireHP = hp;
+        UpdateLifeText();
         checkHP();
     }
 
@@ -114,6 +118,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void UpdateLifeText()
+    {
+        lifeText.text = $"X {entireHP}";
+    }
+
     //몬스터 죽으면 이거 불러서 킬카운트 증가.
     //킬카운트가 이번 레벨의 몬스터 카운트와 같을 시 다음 웨이브로 넘어간다.
     public void checkKillCount()
@@ -123,7 +132,7 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
-        
+        Debug.Log("게임 오버");
     }
     
     
@@ -138,5 +147,11 @@ public class GameManager : MonoBehaviour
     {
         tempTowerSpeedUp = true;
         TowerAttackSpeed *= 1.2f;
+    }
+
+    public void OpenTower()
+    {
+        NowTowerCount++;
+        TowerGOs[NowTowerCount].gameObject.SetActive(true);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class PoolManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PoolManager : MonoBehaviour
     // 프리펩의 수만큼 큐를 생성
     private List<Queue<GameObject>> poolingObjectQueueList = new List<Queue<GameObject>>();
 
-    public List<Transform> livingObjectList = new List<Transform>();
+    public List<GameObject> livingObjectList = new List<GameObject>();
 
     private void Start()
     {
@@ -52,11 +53,11 @@ public class PoolManager : MonoBehaviour
         if (Instance.poolingObjectQueueList[prefebID].Count > 0)
         {
             GameObject obj = Instance.poolingObjectQueueList[prefebID].Dequeue();
-            if(prefebID > 5)
+            if(prefebID == ((int)PoolGameObjectType.Rabbit) ||
+                prefebID == ((int)PoolGameObjectType.Chtulu))
             {
-                Instance.livingObjectList.Add(obj.transform);
+                Instance.livingObjectList.Add(obj);
             }
-            //obj.transform.SetParent(null);
             obj.SetActive(true);
             return obj;
         }
@@ -64,10 +65,11 @@ public class PoolManager : MonoBehaviour
         else
         {
             GameObject newObj = Instance.createNewObject(prefebID);
-            if (prefebID > 5)
+            if (prefebID == ((int)PoolGameObjectType.Rabbit) ||
+                prefebID == ((int)PoolGameObjectType.Chtulu))
             {
-                Instance.livingObjectList.Add(newObj.transform);
-            }            //newObj.transform.SetParent(null);
+                Instance.livingObjectList.Add(newObj);
+            }
             newObj.SetActive(true);
             return newObj;
         }
@@ -78,6 +80,35 @@ public class PoolManager : MonoBehaviour
         obj.transform.SetParent(Instance.transform);
         Instance.poolingObjectQueueList[prefebID].Enqueue(obj);
     }
+
+    public static GameObject GetMonWithLargestX()
+    {
+        float largestX = float.MinValue;
+        GameObject targetObject = null;
+
+
+        foreach (GameObject obj in Instance.livingObjectList)
+        {
+            if (obj.activeSelf)
+            {
+                float currentX = obj.transform.position.x;
+                if (currentX > largestX)
+                {
+                    largestX = currentX;
+                    targetObject = obj;
+                }
+            }
+        }
+        return targetObject;
+    }
+
+    [ContextMenu("토끼찾기")]
+    void GetNearRabbit()
+    {
+        Debug.Log(GetMonWithLargestX().transform.position.x);
+    }
+
+   
 
     
 }

@@ -1,32 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public TowerData towerData;
-    private float bulletSpeed;
+    public Rigidbody2D rb;
+    private float bulletSpeed = 10;
     private InteractionType interactionType;
     private float efficiency;
-    private int returnPool; // 풀에 반환하기 위해서 타워타입을 받아와서 그에 맞춰서 반환
     public enum InteractionType
     {
         Damage,
         Slow,
         knockback,
     }
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+  
     public void BulletFire(Transform spawnerPos, MonsterClass monster, TowerType towerType, float efficiency)
     {
-        Debug.Log("BulletFire Call");
         gameObject.transform.position = spawnerPos.position;
-        Vector3 direction = (spawnerPos.position - monster.transform.position).normalized;
+        Vector3 direction = -(spawnerPos.position - monster.transform.position).normalized;
         rb.velocity = direction * bulletSpeed;
-        returnPool = (int)towerType;
         switch (towerType)
         {
             case TowerType.Slow:
@@ -46,7 +40,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "monster")
         {
             InteractionWithMonster(collision.gameObject.GetComponent<MonsterClass>(), efficiency);
-            //오브젝트 풀에 탄환 반환
+            PoolManager.ReturnObject(gameObject, ((int)PoolGameObjectType.bullet));
         }
     }
 
@@ -68,6 +62,6 @@ public class Bullet : MonoBehaviour
 
     private void OnBecameInvisible() // 화면 밖으로 나갔을 때 호출되는 함수
     {
-        PoolManager.ReturnObject(gameObject, returnPool);
+        PoolManager.ReturnObject(gameObject, ((int)PoolGameObjectType.bullet));
     }
 }
