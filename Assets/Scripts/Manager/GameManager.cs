@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {   
@@ -153,7 +154,7 @@ public class GameManager : MonoBehaviour
 
         level = 0;
         setHP(5);
-        for (int i = 1;i<5 ;i++)
+        for (int i = 1; i < 5; i++)
         {
             TowerGOs[i].SetActive(false);
         }
