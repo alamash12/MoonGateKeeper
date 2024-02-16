@@ -39,16 +39,22 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
     bool tempTowerSpeedUp;
+    private int bestStage;
+    public TMP_Text bestStageText;
 
 
 
-    private void Start()
+    private void Start()    
     {
         UpdateLifeText();
         Time.timeScale = 4f;
+        bestStage = PlayerPrefs.GetInt("BestStage", 0);
     }
+
     public void StartStage()
     {
+        Time.timeScale = 1f;
+
         level++;
         killCount = 0;
         if (level <= 5)
@@ -131,15 +137,20 @@ public class GameManager : MonoBehaviour
         lifeText.text = $"X {entireHP}";
     }
 
-    //몬스터 죽으면 이거 불러서 킬카운트 증가.
-    //킬카운트가 이번 레벨의 몬스터 카운트와 같을 시 다음 웨이브로 넘어간다.
-    public void checkKillCount()
-    {
-        
-    }
-
     public void gameOver()
     {
+        Time.timeScale = 0f;
+        PoolManager.Instance.ReturnAll();
+
+        if (level > bestStage)
+        {
+            // 현재 스테이지가 최고 기록보다 높을 경우 최고 기록 갱신
+            bestStage = level;
+            PlayerPrefs.SetInt("BestStage", bestStage);
+        }
+
+        bestStageText.text = $"최고 기록 : STAGE {bestStage}";
+
         level = 0;
         setHP(5);
         for (int i = 1;i<5 ;i++)
@@ -148,6 +159,12 @@ public class GameManager : MonoBehaviour
         }
         MonsterMoveSpeed = 1; TowerAttackSpeed = 1;
         NowTowerCount = 1;
+        SeizeTower.instance = null;
+        SlowTower.instance = null;
+        KnockTower.Instance = null;
+        WideTower.Instance = null;
+        MonsterSpawner.Instance.StopAllCoroutines();
+        CanvasManager.Instance.OpenGameover();
     }
     
     

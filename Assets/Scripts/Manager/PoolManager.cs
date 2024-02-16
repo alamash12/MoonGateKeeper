@@ -101,4 +101,30 @@ public class PoolManager : MonoBehaviour
         return targetObject;
     }
 
+    public void ReturnAll()
+    {
+        int childCount = gameObject.transform.childCount;
+
+        for (int i = 0; i < childCount; i++)
+        {
+            GameObject childObject = gameObject.transform.GetChild(i).gameObject;
+            string objectName = childObject.name;
+
+            if(childObject.activeSelf)
+            {
+                if (objectName == "Bullet(Clone)")
+                {
+                    ReturnObject(childObject, 0);
+                }
+                else if (objectName == "Rabbit(Clone)")
+                {
+                    ReturnObject(childObject, 1);
+                }
+                else if (objectName == "ChtuluWing(Clone)")
+                {
+                    ReturnObject(childObject, 2);
+                }
+            }
+        }
+    }
 }
