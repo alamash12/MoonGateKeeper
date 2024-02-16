@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class MonsterSpawner : MonoBehaviour
 {
+    public static MonsterSpawner Instance;
+    private void Awake()
+    {
+        Instance = this; 
+    }
     List<GameObject> Spawns = new List<GameObject>();
 
     public MonsterTierByColor tierByColor;
@@ -29,20 +35,15 @@ public class MonsterSpawner : MonoBehaviour
 
     public int rabbitGrade;
     public int chtuluGrade;
-    PoolManager enemyPoolManager;
-    private void Start()
-    {
-        startWave(8, 2, 5, 4);
-    }
-
+   
     IEnumerator SpawnRabbit(int rabbitCount)
     {
         for(int i = 0; i < rabbitCount; i++)
         {
-            //GameObject rab = 
-            //rab.transform.position = RabbitSpawnPoint.position;
-            //Color nowRabColor = tierByColor.MonsterColor[rabbitGrade - 1];
-            //rab.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowRabColor);
+            GameObject rab = PoolManager.GetObject((int)PoolGameObjectType.Rabbit);
+            rab.transform.position = RabbitSpawnPoint.position;
+            Color nowRabColor = tierByColor.MonsterColor[rabbitGrade - 1];
+            rab.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowRabColor);
             yield return new WaitForSeconds(1f / RabbitSpawnRate); // 스폰 간격 설정
         }
     }
@@ -51,15 +52,15 @@ public class MonsterSpawner : MonoBehaviour
     {
         for (int i = 0; i < chtuluCount; i++)
         {
-            //GameObject Cht = 
-            //Cht.transform.position = ChtuluSpawnPoint.position;
-            //Color nowChtColor = tierByColor.MonsterColor[chtuluGrade - 1];
-            //Cht.GetComponent<MonsterClass>().setGrade(chtuluGrade, nowChtColor);
+            GameObject Cht = PoolManager.GetObject((int)PoolGameObjectType.Chtulu);
+            Cht.transform.position = ChtuluSpawnPoint.position;
+            Color nowChtColor = tierByColor.MonsterColor[chtuluGrade - 1];
+            Cht.GetComponent<MonsterClass>().setGrade(chtuluGrade, nowChtColor);
             yield return new WaitForSeconds(1f / ChtuluSpawnRate); // 스폰 간격 설정
         }
     }
 
-    public void startWave(int rabbitCount, int rabbitTier, int chtuluCount, int chtuluTier)
+    public void SpawnWave(int rabbitCount, int rabbitTier, int chtuluCount, int chtuluTier)
     {
         rabbitGrade = rabbitTier;
         chtuluGrade = chtuluTier;

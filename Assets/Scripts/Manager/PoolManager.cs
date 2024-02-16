@@ -26,10 +26,7 @@ public class PoolManager : MonoBehaviour
         Initialize(10);
         
     }
-    public void Update()
-    {
-        
-    }
+   
     private GameObject createNewObject(int prefebID)
     {
         GameObject newObj = Instantiate(objectPrefebList[prefebID]);

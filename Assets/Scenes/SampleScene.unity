@@ -493,6 +493,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefebList:
   - {fileID: 1364818324353136791, guid: c71ea5725b538284aa408527f6b6edd2, type: 3}
+  - {fileID: 4717967297514636890, guid: 31d06d2c8e0d2fb4a9a9d72bb2339d8b, type: 3}
+  - {fileID: 7622638611774661594, guid: edb6fdb32389a064bbd9c85b46e668ae, type: 3}
+  livingObjectList: []
 --- !u!4 &270012328
 Transform:
   m_ObjectHideFlags: 0
@@ -1798,7 +1801,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1238099129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2503,7 +2506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1955292383
 SpriteRenderer:
   m_ObjectHideFlags: 0

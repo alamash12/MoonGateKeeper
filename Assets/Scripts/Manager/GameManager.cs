@@ -22,20 +22,79 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public static int entireHP = 5;
-    public static int level = 1; //웨이브숫자
-    int multiplier = 20;
-    public int killCount = 0;
-    [HideInInspector] public int NowTowerCount = 3;
+    public int entireHP = 5;
+    public int level = 0; 
+    int rabCount;
+    int rabTier;
+    int ChtCount;
+    int ChtTier;
+    //죽은 몬스터 + 닿아서 없어진 몬스터
+    public int killCount;
+    public int NowWaveMonsterCount;
+    [HideInInspector] public int NowTowerCount = 1;
     [HideInInspector] public float MonsterMoveSpeed = 1f;
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
     bool tempTowerSpeedUp;
 
-    private void Update()
+    //1초 후에 웨이브 시작
+    public void StartStage()
     {
-        checkHP();
-        checkKillCount();
+        StartCoroutine(StartStageCor()); 
+    }
+
+    IEnumerator StartStageCor()
+    {
+        yield return new WaitForSeconds(1f);
+        level++;
+        killCount = 0;
+
+        if(level<=5)
+        {
+            rabCount = 5; rabTier = level;
+            ChtCount = 0; ChtTier = 1;
+        }
+        else if(level<=10)
+        {
+            rabCount = 10; rabTier = level;
+            ChtCount = 0; ChtTier = 1;
+        }
+        else if (level <= 15)
+        {
+            rabCount = 10; rabTier = 10;
+            ChtCount = 0; ChtTier = level-10;
+        }
+        else if (level <= 20)
+        {
+            rabCount = 10; rabTier = 10;
+            ChtCount = 10; ChtTier = level-10;
+        }
+        else
+        {
+            rabCount = level-10; rabTier = 10;
+            ChtCount = level-10; ChtTier = 10;
+        }
+        NowWaveMonsterCount = rabCount + ChtCount;
+        MonsterSpawner.Instance.SpawnWave(rabCount, rabTier, ChtCount, ChtTier);
+    }
+
+
+    void EndStage()
+    {
+        //Temp몬스터 슬로우, 포탑 강화 해체
+        if (tempMonsterSlow)
+        {
+            tempMonsterSlow = false;
+            MonsterMoveSpeed *= 2f;
+        }
+
+        if (tempTowerSpeedUp)
+        {
+            tempTowerSpeedUp = true;
+            TowerAttackSpeed /= 1.2f;
+        }
+        //증강체 띄우기
+        CanvasManager.Instance.OpenAugment();
     }
 
     public void setHP(int hp)
@@ -55,11 +114,7 @@ public class GameManager : MonoBehaviour
     //킬카운트가 이번 레벨의 몬스터 카운트와 같을 시 다음 웨이브로 넘어간다.
     public void checkKillCount()
     {
-        if (killCount >= level * multiplier)
-        {
-            level++;
-            //증강 띄우기.
-        }
+        
     }
 
     public void gameOver()
@@ -67,27 +122,7 @@ public class GameManager : MonoBehaviour
         
     }
     
-    void StartStage()
-    {
-
-    }
-
-    void EndStage()
-    {
-        //Temp몬스터 슬로우, 포탑 강화 해체
-        if(tempMonsterSlow)
-        {
-            tempMonsterSlow = false;
-            MonsterMoveSpeed *= 2f;
-        }
-
-        if(tempTowerSpeedUp)
-        {
-            tempTowerSpeedUp = true;
-            TowerAttackSpeed /= 1.2f;
-        }
-        //증강체 띄우기
-    }
+    
 
     public void TempMonSlow()
     {

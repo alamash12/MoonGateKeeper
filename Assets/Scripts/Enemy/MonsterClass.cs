@@ -31,7 +31,7 @@ public class MonsterClass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.instance.setHP(GameManager.entireHP--);
+        GameManager.instance.setHP(GameManager.instance.entireHP--);
         Destroy(gameObject);
     }
 
@@ -41,7 +41,7 @@ public class MonsterClass : MonoBehaviour
         monsterHealth -= Damage;
         if(monsterHealth < 0)
         {
-            Debug.Log("풀에 반환.");
+            PoolManager.ReturnObject(gameObject, 6);
         }
     }
 

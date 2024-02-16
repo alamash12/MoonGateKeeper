@@ -145,7 +145,7 @@ public class AugmentUI : MonoBehaviour
                 GameManager.instance.TempTowerSpeedUP();
                 break;
             case AugmentType.LifeUp:
-                GameManager.entireHP++;
+                GameManager.instance.entireHP++;
                 break;
             case AugmentType.Reroll:
                 ShowAugment();
