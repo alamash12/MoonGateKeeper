@@ -15,6 +15,8 @@ public class PoolManager : MonoBehaviour
     // 프리펩의 수만큼 큐를 생성
     private List<Queue<GameObject>> poolingObjectQueueList = new List<Queue<GameObject>>();
 
+    public List<Transform> livingObjectList = new List<Transform>();
+
     private void Start()
     {
         for (int i = 0; i < objectPrefebList.Count; i++)
@@ -22,6 +24,11 @@ public class PoolManager : MonoBehaviour
             poolingObjectQueueList.Add(new Queue<GameObject>());
         }
         Initialize(10);
+        
+    }
+    public void Update()
+    {
+        
     }
     private GameObject createNewObject(int prefebID)
     {
@@ -48,6 +55,10 @@ public class PoolManager : MonoBehaviour
         if (Instance.poolingObjectQueueList[prefebID].Count > 0)
         {
             GameObject obj = Instance.poolingObjectQueueList[prefebID].Dequeue();
+            if(prefebID > 5)
+            {
+                Instance.livingObjectList.Add(obj.transform);
+            }
             //obj.transform.SetParent(null);
             obj.SetActive(true);
             return obj;
@@ -56,7 +67,10 @@ public class PoolManager : MonoBehaviour
         else
         {
             GameObject newObj = Instance.createNewObject(prefebID);
-            //newObj.transform.SetParent(null);
+            if (prefebID > 5)
+            {
+                Instance.livingObjectList.Add(newObj.transform);
+            }            //newObj.transform.SetParent(null);
             newObj.SetActive(true);
             return newObj;
         }
@@ -67,4 +81,6 @@ public class PoolManager : MonoBehaviour
         obj.transform.SetParent(Instance.transform);
         Instance.poolingObjectQueueList[prefebID].Enqueue(obj);
     }
+
+    
 }

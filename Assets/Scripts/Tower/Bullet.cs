@@ -55,13 +55,13 @@ public class Bullet : MonoBehaviour
         switch (interactionType)
         {
             case InteractionType.Damage:
-                // 데미지
+                monsterClass.getDamaged(efficiency);
                 break;
             case InteractionType.Slow:
-                // 슬로우
+                monsterClass.getSlowed(efficiency);
                 break;
             case InteractionType.knockback:
-                // 넉백
+                monsterClass.getKnockBacked(efficiency);
                 break;
         }
     }
