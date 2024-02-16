@@ -12,9 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96dca6fb292a7234a9a0081c9138ed1c, type: 3}
   m_Name: ChtuluData
   m_EditorClassIdentifier: 
-  monsterName: 
-  attackDamage: 0
-  attackSpeed: 0
+  mName: 1
   maxHealth: 0
   moveSpeed: 2
-  killReward: 0

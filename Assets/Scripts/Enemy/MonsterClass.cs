@@ -133,6 +133,7 @@ public class MonsterClass : MonoBehaviour
     private void OnDisable()
     {
         isActive  = false;
+      
     }
 }
 

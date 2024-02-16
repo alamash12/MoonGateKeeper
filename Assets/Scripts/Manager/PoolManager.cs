@@ -14,7 +14,7 @@ public class PoolManager : MonoBehaviour
     // 게임프리펩을 담아두는 리스트
     [SerializeField] private List<GameObject> objectPrefebList = new List<GameObject>();
     // 프리펩의 수만큼 큐를 생성
-    private List<Queue<GameObject>> poolingObjectQueueList = new List<Queue<GameObject>>();
+    public List<Queue<GameObject>> poolingObjectQueueList = new List<Queue<GameObject>>();
 
     public List<GameObject> livingObjectList = new List<GameObject>();
 
@@ -48,7 +48,6 @@ public class PoolManager : MonoBehaviour
     }
     public static GameObject GetObject(int prefebID)
     {
-        //Debug.Log($"{prefebID}번 오브젝트 생성");
         // Pool에 남는 GameObject가 있을 때 남는 Object return
         if (Instance.poolingObjectQueueList[prefebID].Count > 0)
         {
@@ -77,7 +76,7 @@ public class PoolManager : MonoBehaviour
     public static void ReturnObject(GameObject obj, int prefebID)
     {
         obj.SetActive(false);
-        obj.transform.SetParent(Instance.transform);
+        //obj.transform.SetParent(Instance.transform);
         Instance.poolingObjectQueueList[prefebID].Enqueue(obj);
     }
 
@@ -102,13 +101,4 @@ public class PoolManager : MonoBehaviour
         return targetObject;
     }
 
-    [ContextMenu("토끼찾기")]
-    void GetNearRabbit()
-    {
-        Debug.Log(GetMonWithLargestX().transform.position.x);
-    }
-
-   
-
-    
 }

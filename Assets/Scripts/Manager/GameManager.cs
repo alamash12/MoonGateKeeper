@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public int entireHP = 5;
+    public int entireHP = 5000;
     public TMP_Text lifeText;
-    public int level = 0; 
+    public int level = 10; 
     int rabCount;
     int rabTier;
     int ChtCount;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateLifeText();
-        Time.timeScale = 1.5f;
+        Time.timeScale = 4f;
     }
     public void StartStage()
     {
@@ -104,6 +104,9 @@ public class GameManager : MonoBehaviour
             tempTowerSpeedUp = true;
             TowerAttackSpeed /= 1.2f;
         }
+
+        PoolManager.Instance.livingObjectList.Clear();
+
         //증강체 띄우기
         CanvasManager.Instance.OpenAugment();
     }
@@ -137,7 +140,14 @@ public class GameManager : MonoBehaviour
 
     public void gameOver()
     {
-        Debug.Log("게임 오버");
+        level = 0;
+        setHP(5);
+        for (int i = 1;i<5 ;i++)
+        {
+            TowerGOs[i].SetActive(false);
+        }
+        MonsterMoveSpeed = 1; TowerAttackSpeed = 1;
+        NowTowerCount = 1;
     }
     
     
