@@ -51,6 +51,7 @@ public class AugmentUI : MonoBehaviour
             int AugmentIndex = AugmentArray[i];
             buttons[i].GetComponent<Image>().sprite = GetProperIcon(AugmentIndex);
             btnInfoTexts[i].text = AugmentString[AugmentIndex];
+            buttons[i].onClick.RemoveAllListeners();
             buttons[i].onClick.AddListener(() => Augment(AugmentIndex));
         }
     }
@@ -118,23 +119,52 @@ public class AugmentUI : MonoBehaviour
                 BaseTower.Instance.TowerEffeciency += 2.5f;
                 break;
             case AugmentType.UpgradeSeize:
-                SeizeTower.instance.TowerEffeciency += 6f;
+                if (SeizeTower.instance != null)
+                {
+                    SeizeTower.instance.TowerEffeciency += 6f;
+                }
                 break;
             case AugmentType.UpgradeSlow:
-                SlowTower.instance.TowerEffeciency += 0.1f;
+                if (SlowTower.instance != null)
+                {
+                    SlowTower.instance.TowerEffeciency += 0.1f;
+                }
                 break;
             case AugmentType.UpgradeKnock:
-                KnockTower.Instance.TowerEffeciency += 0.5f;
+                if (KnockTower.Instance != null)
+                {
+                    KnockTower.Instance.TowerEffeciency += 0.5f;
+                }
                 break;
             case AugmentType.UpgradeWide:
-                WideTower.Instance.TowerEffeciency += 2.5f;
+                if (WideTower.Instance != null)
+                {
+                    WideTower.Instance.TowerEffeciency += 2.5f;
+                }
                 break;
             case AugmentType.UpgradeAll:
-                BaseTower.Instance.TowerEffeciency += 0.5f;
-                SeizeTower.instance.TowerEffeciency += 1.2f;
-                SlowTower.instance.TowerEffeciency += 0.04f;
-                KnockTower.Instance.TowerEffeciency += 0.2f;
-                WideTower.Instance.TowerEffeciency += 0.5f;
+                if (BaseTower.Instance != null)
+                {
+                    BaseTower.Instance.TowerEffeciency += 0.5f;
+                }
+                if (SeizeTower.instance != null)
+                {
+                    SeizeTower.instance.TowerEffeciency += 1.2f;
+                }
+                if (SlowTower.instance != null)
+                {
+                    SlowTower.instance.TowerEffeciency += 0.04f;
+                }
+                if (KnockTower.Instance != null)
+                {
+                    KnockTower.Instance.TowerEffeciency += 0.2f;
+                }
+                if (WideTower.Instance != null)
+                {
+                    WideTower.Instance.TowerEffeciency += 0.5f;
+                }
+                break;
+
                 break;
             case AugmentType.MonSlow:
                 GameManager.instance.MonsterMoveSpeed -= 0.05f;

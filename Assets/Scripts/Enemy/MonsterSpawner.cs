@@ -46,6 +46,7 @@ public class MonsterSpawner : MonoBehaviour
             rab.GetComponent<MonsterClass>().setGrade(rabbitGrade, nowRabColor);
             yield return new WaitForSeconds(1f / RabbitSpawnRate); // 스폰 간격 설정
         }
+        Debug.Log(GameManager.instance.level + "끝");
     }
 
     IEnumerator SpawnChtulu(int chtuluCount)

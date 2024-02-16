@@ -33,36 +33,31 @@ public class GameManager : MonoBehaviour
     //죽은 몬스터 + 닿아서 없어진 몬스터
     public int killCount;
     public int NowWaveMonsterCount;
-    [HideInInspector] public int NowTowerCount = 1;
+    public int NowTowerCount = 1;
     public GameObject[] TowerGOs;
     [HideInInspector] public float MonsterMoveSpeed = 1f;
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
     bool tempTowerSpeedUp;
 
-    //1초 후에 웨이브 시작
+
 
     private void Start()
     {
         UpdateLifeText();
+        Time.timeScale = 5f;
     }
     public void StartStage()
     {
-        StartCoroutine(StartStageCor()); 
-    }
-
-    IEnumerator StartStageCor()
-    {
-        yield return new WaitForSeconds(1f);
         level++;
         killCount = 0;
-
-        if(level<=5)
+        Debug.Log($"스테이지 {level} 시작");
+        if (level <= 5)
         {
             rabCount = 5; rabTier = level;
             ChtCount = 0; ChtTier = 1;
         }
-        else if(level<=10)
+        else if (level <= 10)
         {
             rabCount = 10; rabTier = level;
             ChtCount = 0; ChtTier = 1;
@@ -70,22 +65,23 @@ public class GameManager : MonoBehaviour
         else if (level <= 15)
         {
             rabCount = 10; rabTier = 10;
-            ChtCount = 0; ChtTier = level-10;
+            ChtCount = 0; ChtTier = level - 10;
         }
         else if (level <= 20)
         {
             rabCount = 10; rabTier = 10;
-            ChtCount = 10; ChtTier = level-10;
+            ChtCount = 10; ChtTier = level - 10;
         }
         else
         {
-            rabCount = level-10; rabTier = 10;
-            ChtCount = level-10; ChtTier = 10;
+            rabCount = level - 10; rabTier = 10;
+            ChtCount = level - 10; ChtTier = 10;
         }
         NowWaveMonsterCount = rabCount + ChtCount;
         MonsterSpawner.Instance.SpawnWave(rabCount, rabTier, ChtCount, ChtTier);
     }
 
+   
     public void UpKillCount()
     {
         killCount++;
@@ -162,6 +158,6 @@ public class GameManager : MonoBehaviour
     public void OpenTower()
     {
         NowTowerCount++;
-        TowerGOs[NowTowerCount].gameObject.SetActive(true);
+        TowerGOs[NowTowerCount-1].gameObject.SetActive(true);
     }
 }

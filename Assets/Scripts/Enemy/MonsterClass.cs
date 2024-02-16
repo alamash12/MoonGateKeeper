@@ -21,7 +21,7 @@ public class MonsterClass : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        monsterSpeed = monsterData.MoveSpeed;
+        monsterSpeed = monsterData.MoveSpeed * GameManager.instance.MonsterMoveSpeed;
     }
 
     // Update is called once per frame
