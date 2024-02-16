@@ -78,7 +78,10 @@ public class GameManager : MonoBehaviour
         MonsterSpawner.Instance.SpawnWave(rabCount, rabTier, ChtCount, ChtTier);
     }
 
-
+    public void CheckStageEnd()
+    {
+        if(killCount == NowWaveMonsterCount) { EndStage(); }
+    }
     void EndStage()
     {
         //Temp몬스터 슬로우, 포탑 강화 해체
@@ -100,6 +103,7 @@ public class GameManager : MonoBehaviour
     public void setHP(int hp)
     {
         entireHP = hp;
+        checkHP();
     }
 
     public void checkHP()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class MonsterClass : MonoBehaviour
 {
@@ -31,8 +32,11 @@ public class MonsterClass : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        GameManager.instance.setHP(GameManager.instance.entireHP--);
-        Destroy(gameObject);
+        if(collision.gameObject.tag == "Tower")
+        {
+            GameManager.instance.setHP(GameManager.instance.entireHP--);
+            ReturnToPool();
+        }
     }
 
   
@@ -41,7 +45,9 @@ public class MonsterClass : MonoBehaviour
         monsterHealth -= Damage;
         if(monsterHealth < 0)
         {
-            PoolManager.ReturnObject(gameObject, 6);
+            ReturnToPool();
+            GameManager.instance.killCount++;
+            GameManager.instance.CheckStageEnd();
         }
     }
 
@@ -52,6 +58,18 @@ public class MonsterClass : MonoBehaviour
         {
             isSlowed = true;
             monsterSpeed *= Magnitude;
+        }
+    }
+
+    void ReturnToPool()
+    {
+        if (monsterData.MName == MonsterData.monsterName.Rabbit)
+        {
+            PoolManager.ReturnObject(gameObject, (int)PoolGameObjectType.Rabbit);
+        }
+        else
+        {
+            PoolManager.ReturnObject(gameObject, (int)PoolGameObjectType.Chtulu);
         }
     }
 
@@ -97,6 +115,11 @@ public class MonsterClass : MonoBehaviour
         {
             spriteRenderer.color = color;
             monsterHealth = 10 + 2 * tier;
+        }
+
+        if(GameManager.instance.level > 20)
+        {
+            monsterHealth += GameManager.instance.level - 20;
         }
     }
 }
