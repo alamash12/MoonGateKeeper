@@ -5,13 +5,14 @@ using UnityEngine;
 public class BaseTower : MonoBehaviour
 {
     public TowerData TowerData;
+    private TowerType towerType;
     private float FirstAttackTerm;
     public GameObject bulletPrefab;
-    public GameObject nearMonster; // 이따가 연결할거임
+    public MonsterClass nearMonster; // 이따가 연결할거임
     public void Start()
     {
         FirstAttackTerm = 3f;
-
+        towerType = TowerType.Base;
 
         StartCoroutine(bulletSpawn());
     }
@@ -26,8 +27,12 @@ public class BaseTower : MonoBehaviour
         yield return new WaitForSeconds(FirstAttackTerm);
         while(true)
         {
-            Instantiate(bulletPrefab);
-            
+            GameObject obj = PoolManager.GetObject((int)towerType);
+            Bullet bullet = obj.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                bullet.BulletFire(transform, nearMonster, towerType, TowerData.TowerEfficiency);
+            }
             yield return new WaitForSeconds(TowerData.AttackTerm);
         }
     }
