@@ -32,7 +32,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private void Start()
     {
-        startWave(8, 2, 5, 2);
+        startWave(8, 2, 5, 4);
     }
 
     IEnumerator SpawnRabbit(int rabbitCount)
