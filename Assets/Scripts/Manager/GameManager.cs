@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public int entireHP = 5000;
     public TMP_Text lifeText;
+    public TMP_Text nowStageText;
     public int level = 10; 
     int rabCount;
     int rabTier;
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
         SoundManager.instance.Play(UI_Define.BGM.StageBGM);
 
         level++;
+        nowStageText.text = $"STAGE {level}";
         killCount = 0;
         if (level <= 5)
         {

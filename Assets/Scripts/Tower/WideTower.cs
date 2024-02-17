@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static Define;
 
@@ -26,12 +27,17 @@ public class WideTower : MonoBehaviour
     {
         while (true)
         {
-            foreach(var Enemy in PoolManager.Instance.livingObjectList)
+            if (PoolManager.Instance.livingObjectList.Count > 0)
             {
-                Enemy.GetComponent<MonsterClass>().getDamaged(TowerEffeciency);
+                foreach (var Enemy in PoolManager.Instance.livingObjectList.ToList())
+                {
+                    Enemy.GetComponent<MonsterClass>().getDamaged(TowerEffeciency);
+                }
+
+                transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
+                animator.SetTrigger("Shoot");
             }
-            transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
-            animator.SetTrigger("Shoot");
+
             yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
         }
     }
