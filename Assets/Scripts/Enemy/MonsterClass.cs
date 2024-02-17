@@ -47,7 +47,7 @@ public class MonsterClass : MonoBehaviour
     {
         float tempHP = monsterHealth;
         monsterHealth -= Damage;
-        SoundManager.instance.Play(UI_Define.SFX.rabbit_cthulu_hit);
+        if(gameObject.activeSelf)SoundManager.instance.Play(UI_Define.SFX.rabbit_cthulu_hit);
         if (monsterHealth < 0)
         {
             if (tempHP < 0) return;
