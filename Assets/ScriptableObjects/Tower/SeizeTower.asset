@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SeizeTower
   m_EditorClassIdentifier: 
   towerType: 1
-  towerEfficiency: 12
-  attackTerm: 0.5
+  towerEfficiency: 10
+  attackTerm: 0.3

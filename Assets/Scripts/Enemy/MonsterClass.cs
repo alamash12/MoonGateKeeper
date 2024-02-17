@@ -36,9 +36,9 @@ public class MonsterClass : MonoBehaviour
         if(collision.gameObject.tag == "Tower")
         {
             int nowHp = GameManager.instance.entireHP;
-            GameManager.instance.setHP(nowHp-1);
+            GameManager.instance.setHP(GameManager.instance.entireHP - 1);
 
-            ReturnToPool();
+            getDamaged(1000);
         }
     }
 
@@ -123,19 +123,20 @@ public class MonsterClass : MonoBehaviour
         else if(monsterData.MName == MonsterData.monsterName.Chtulu)
         {
             spriteRenderer.color = color;
-            monsterHealth = 10 + 2 * tier;
+            monsterHealth = 8 + 2 * tier;
         }
 
         if(GameManager.instance.level > 20)
         {
             monsterHealth += GameManager.instance.level - 20;
         }
+        monsterSpeed = monsterData.MoveSpeed * GameManager.instance.MonsterMoveSpeed;
     }
 
     private void OnDisable()
     {
         isActive  = false;
-      
+        isSlowed = false;
     }
 }
 

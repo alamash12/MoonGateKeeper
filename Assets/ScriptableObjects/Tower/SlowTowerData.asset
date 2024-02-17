@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SlowTowerData
   m_EditorClassIdentifier: 
   towerType: 2
-  towerEfficiency: 0.1
-  attackTerm: 1
+  towerEfficiency: 0.2
+  attackTerm: 0.8

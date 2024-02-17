@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 4
   towerEfficiency: 5
-  attackTerm: 0.33
+  attackTerm: 0.2

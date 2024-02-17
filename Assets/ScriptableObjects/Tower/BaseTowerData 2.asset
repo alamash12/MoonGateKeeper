@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BaseTowerData 2
   m_EditorClassIdentifier: 
   towerType: 0
-  towerEfficiency: 5
-  attackTerm: 1
+  towerEfficiency: 4
+  attackTerm: 0.7
