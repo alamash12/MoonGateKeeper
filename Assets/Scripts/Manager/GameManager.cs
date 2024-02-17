@@ -48,12 +48,14 @@ public class GameManager : MonoBehaviour
     private void Start()    
     {
         UpdateLifeText();
+        SoundManager.instance.Play(UI_Define.BGM.MainBGM);
         bestStage = PlayerPrefs.GetInt("BestStage", 0);
     }
 
     public void StartStage()
     {
         Time.timeScale = 1f;
+        SoundManager.instance.Play(UI_Define.BGM.StageBGM);
 
         level++;
         killCount = 0;
