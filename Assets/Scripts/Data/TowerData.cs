@@ -25,8 +25,8 @@ public class TowerData : ScriptableObject
     public float TowerEfficiency { get { return towerEfficiency; } }
 
     [SerializeField]
-    private float attackTerm;
-    public float AttackTerm { get { return attackTerm; } }
+    private float attackSpeed;
+    public float AttackSpeed { get { return attackSpeed; } }
 
 
 }

@@ -19,7 +19,7 @@ public class WideTower : MonoBehaviour
     public void Start()
     {
         TowerEffeciency = TowerData.TowerEfficiency;
-        AttackTerm = TowerData.AttackTerm;
+        AttackTerm = TowerData.AttackSpeed;
         StartCoroutine(bulletSpawn());
     }
 
