@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public int NowWaveMonsterCount;
     public int NowTowerCount = 1;
     public GameObject[] TowerGOs;
+    
     [HideInInspector] public float MonsterMoveSpeed = 1f;
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()    
     {
+
         UpdateLifeText();
         SoundManager.instance.Play(UI_Define.BGM.MainBGM);
         bestStage = PlayerPrefs.GetInt("BestStage", 0);

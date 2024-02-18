@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,14 @@ public class TowerClass : MonoBehaviour
     }
     public TowerData TowerData;
     public float TowerEffeciency;
-    public float AttackTerm;
+    public float AttackSpeed;
     public MonsterClass nearMonster; // 이따가 연결할거임
     public Animator animator;
 
     void Start()
     {
         TowerEffeciency = TowerData.TowerEfficiency;
-        AttackTerm = TowerData.AttackSpeed;
+        AttackSpeed = TowerData.AttackSpeed;
         StartCoroutine(bulletSpawn());
     }
 
@@ -51,10 +52,10 @@ public class TowerClass : MonoBehaviour
                     Bullet bullet = PoolManager.GetObject((int)PoolGameObjectType.bullet).GetComponent<Bullet>();
                     bullet.BulletFire(transform, nearMonster, TowerData.TowerType, TowerEffeciency);
                     transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
-                    SoundManager.instance.Play(UI_Define.SFX.Ironed_turret);
+                    SoundManager.instance.Play((UI_Define.SFX)TowerData.TowerType);
                 }
-            }
-            yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));
+            }            
+            yield return new WaitForSeconds(1f / (AttackSpeed * GameManager.instance.TowerAttackSpeed));
         }
     }
 }
