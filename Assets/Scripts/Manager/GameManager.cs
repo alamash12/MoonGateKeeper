@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void StartStage()
     {
-        Time.timeScale = 5f;
+        Time.timeScale = 1f;
         SoundManager.Instance.Play(UI_Define.BGM.StageBGM);
 
         level++;

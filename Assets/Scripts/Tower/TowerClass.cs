@@ -65,7 +65,6 @@ public class TowerClass : MonoBehaviour
         }
     }
 
-    public 
     IEnumerator bulletSpawn()
     {
         while(true)
