@@ -147,6 +147,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         PoolManager.Instance.ReturnAll();
+        
 
         if (level > bestStage)
         {
@@ -194,5 +195,10 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void BgmChange()
+    {
+        SoundManager.Instance.Play(UI_Define.BGM.MainBGM);
     }
 }
