@@ -119,55 +119,63 @@ public class AugmentUI : MonoBehaviour
                 GameManager.instance.OpenTower();
                 break;
             case AugmentType.UpgradeBase:
-                BaseTower.Instance.TowerEffeciency += 2.5f;
+                //TowerClass.Towers[(int)TowerType.Base].TowerEffeciency += 2.5f;
+                TowerClass.TowerEfficiencyUP(TowerType.Base, 2.5f);
                 break;
             case AugmentType.UpgradeSeize:
-                if (SeizeTower.instance != null)
-                {
-                    SeizeTower.instance.TowerEffeciency += 6f;
-                }
+                //if (SeizeTower.instance != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.Seize].TowerEffeciency += 6f;
+                //}
+                TowerClass.TowerEfficiencyUP(TowerType.Seize, 6f);
                 break;
             case AugmentType.UpgradeSlow:
-                if (SlowTower.instance != null)
-                {
-                    SlowTower.instance.TowerEffeciency += 0.1f;
-                }
+                //if (SlowTower.instance != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.Slow].TowerEffeciency += 0.1f;
+                //}
+                TowerClass.TowerEfficiencyUP(TowerType.Seize, 0.1f);
                 break;
             case AugmentType.UpgradeKnock:
-                if (KnockTower.Instance != null)
-                {
-                    KnockTower.Instance.TowerEffeciency += 0.5f;
-                }
+                //if (KnockTower.Instance != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.KnockBack].TowerEffeciency += 0.5f;
+                //}
+                TowerClass.TowerEfficiencyUP(TowerType.Seize, 0.5f);
                 break;
             case AugmentType.UpgradeWide:
-                if (WideTower.Instance != null)
-                {
-                    WideTower.Instance.TowerEffeciency += 2.5f;
-                }
+                //if (WideTower.Instance != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.AreaAttack].TowerEffeciency += 2.5f;
+                //}
+                TowerClass.TowerEfficiencyUP(TowerType.Seize, 2.5f);
                 break;
             case AugmentType.UpgradeAll:
-                if (BaseTower.Instance != null)
-                {
-                    BaseTower.Instance.TowerEffeciency += 0.5f;
-                }
-                if (SeizeTower.instance != null)
-                {
-                    SeizeTower.instance.TowerEffeciency += 1.2f;
-                }
-                if (SlowTower.instance != null)
-                {
-                    SlowTower.instance.TowerEffeciency += 0.04f;
-                }
-                if (KnockTower.Instance != null)
-                {
-                    KnockTower.Instance.TowerEffeciency += 0.2f;
-                }
-                if (WideTower.Instance != null)
-                {
-                    WideTower.Instance.TowerEffeciency += 0.5f;
-                }
-                break;
-
+                //if (TowerClass.Towers[(int)TowerType.Base] != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.Base].TowerEffeciency += 0.5f;
+                //}
+                //if (TowerClass.Towers[(int)TowerType.Seize] != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.Seize].TowerEffeciency += 1.2f;
+                //}
+                //if (TowerClass.Towers[(int)TowerType.Slow] != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.Slow].TowerEffeciency += 0.04f;
+                //}
+                //if (TowerClass.Towers[(int)TowerType.KnockBack] != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.KnockBack].TowerEffeciency += 0.2f;
+                //}
+                //if (TowerClass.Towers[(int)TowerType.AreaAttack] != null)
+                //{
+                //    TowerClass.Towers[(int)TowerType.AreaAttack].TowerEffeciency += 0.5f;
+                //}
+                TowerClass.TowerEfficiencyUP(TowerType.Base, 0.5f);
+                TowerClass.TowerEfficiencyUP(TowerType.Seize, 1.2f);
+                TowerClass.TowerEfficiencyUP(TowerType.Slow, 0.04f);
+                TowerClass.TowerEfficiencyUP(TowerType.KnockBack, 0.2f);
+                TowerClass.TowerEfficiencyUP(TowerType.AreaAttack, 0.5f);
                 break;
             case AugmentType.MonSlow:
                 GameManager.instance.MonsterMoveSpeed -= 0.05f;

@@ -37,19 +37,19 @@ public class GameManager : MonoBehaviour
     public int NowWaveMonsterCount;
     public int NowTowerCount = 1;
     public GameObject[] TowerGOs;
-    
+
     [HideInInspector] public float MonsterMoveSpeed = 1f;
     [HideInInspector] public float TowerAttackSpeed = 1f;
     bool tempMonsterSlow;
     bool tempTowerSpeedUp;
+
     private int bestStage;
     public TMP_Text bestStageText;
 
 
 
     private void Start()    
-    {
-
+    {       
         UpdateLifeText();
         SoundManager.Instance.Play(UI_Define.BGM.MainBGM);
         bestStage = PlayerPrefs.GetInt("BestStage", 0);
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void StartStage()
     {
-        Time.timeScale = 1f;
+        Time.timeScale = 5f;
         SoundManager.Instance.Play(UI_Define.BGM.StageBGM);
 
         level++;
@@ -162,13 +162,11 @@ public class GameManager : MonoBehaviour
         for (int i = 1; i < 5; i++)
         {
             TowerGOs[i].SetActive(false);
+            TowerClass.Towers[i] = null;
         }
+        TowerClass.Towers[0].TowerEffeciency = 4f;
         MonsterMoveSpeed = 1; TowerAttackSpeed = 1;
         NowTowerCount = 1;
-        SeizeTower.instance = null;
-        SlowTower.instance = null;
-        KnockTower.Instance = null;
-        WideTower.Instance = null;
         MonsterSpawner.Instance.StopAllCoroutines();
         CanvasManager.Instance.OpenGameover();
     }
