@@ -40,7 +40,7 @@ public class TowerClass : MonoBehaviour
 
                     transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
                     animator.SetTrigger("Shoot");
-                    SoundManager.instance.Play(UI_Define.SFX.Electric_turret);
+                    SoundManager.Instance.Play(UI_Define.SFX.Electric_turret);
                 }
             }
             else
@@ -52,7 +52,7 @@ public class TowerClass : MonoBehaviour
                     Bullet bullet = PoolManager.GetObject((int)PoolGameObjectType.bullet).GetComponent<Bullet>();
                     bullet.BulletFire(transform, nearMonster, TowerData.TowerType, TowerEffeciency);
                     transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
-                    SoundManager.instance.Play((UI_Define.SFX)TowerData.TowerType);
+                    SoundManager.Instance.Play(UI_Define.SFX.Ironed_turret);
                 }
             }            
             yield return new WaitForSeconds(1f / (AttackSpeed * GameManager.instance.TowerAttackSpeed));

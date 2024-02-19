@@ -1,10 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    public Slider[] BGMSliders;
+    public Slider[] SFXSliders;
+
+    private static SoundManager instance;
+    public static SoundManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return null;
+            }
+            else { return instance; }
+        }
+    }
     AudioSource[] _audioSources = new AudioSource[(int)UI_Define.Sounds.MaxCount];
     Dictionary<string, AudioClip> _audioClips = new Dictionary<string, AudioClip>();
 
@@ -16,13 +31,13 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if(Instance == null)
         {
             instance = this;
         }
-        else if(instance != this)
+        else if(Instance != this)
         {
-            Destroy(instance.gameObject);
+            Destroy(Instance.gameObject);
         }
         Init();
     }
@@ -43,7 +58,8 @@ public class SoundManager : MonoBehaviour
                 _audioSources[(int)s] = go.AddComponent<AudioSource>();
                 go.transform.parent = root.transform;
             }
-
+            _bgmvolume = PlayerPrefs.GetFloat("BGMVolume", 0.7f);
+            _sfxvolume = PlayerPrefs.GetFloat("SFXVolume", 0.7f);
             _audioSources[(int)UI_Define.Sounds.BGM].loop = true;
         }
         else
@@ -57,9 +73,51 @@ public class SoundManager : MonoBehaviour
             _audioSources[(int)UI_Define.Sounds.BGM].loop = true;
         }
 
-        _bgmvolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
+        _bgmvolume = PlayerPrefs.GetFloat("BGMVolume", 1f); // 게임 시작시 플레이어프리펩의 값을 불러옴
         _sfxvolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
 
+        SetVolume(UI_Define.Sounds.BGM, _bgmvolume); // 불러온 값으로 오디오소스 볼륨 변경
+        SetVolume(UI_Define.Sounds.SFX, _sfxvolume);
+        VolumeInit();
+
+        BGMSliders[0].onValueChanged.AddListener(delegate { VolumeChange(UI_Define.Sounds.BGM, BGMSliders[0]); });
+        BGMSliders[1].onValueChanged.AddListener(delegate { VolumeChange(UI_Define.Sounds.BGM, BGMSliders[1]); });
+        SFXSliders[0].onValueChanged.AddListener(delegate { VolumeChange(UI_Define.Sounds.SFX, SFXSliders[0]); });
+        SFXSliders[1].onValueChanged.AddListener(delegate { VolumeChange(UI_Define.Sounds.SFX, SFXSliders[1]); });
+    }
+    void VolumeInit() // 초기 슬라이더 값 할당
+    {
+        for(int i = 0; i < BGMSliders.Length;i++)
+        {
+            BGMSliders[i].value = BGMVolume;
+            SFXSliders[i].value = SFXVolume;
+        }
+    }
+    private void VolumeChange(UI_Define.Sounds sounds, Slider slider) // 슬라이더의 값이 변경될때마다 호출
+    {
+        float volume = slider.value;
+        if(sounds == UI_Define.Sounds.BGM)
+        { 
+            BGMVolume = volume;
+            SetVolume(UI_Define.Sounds.BGM, volume);
+            BGMSliders[0].value = slider.value;
+            BGMSliders[1].value = slider.value;
+        }
+        else
+        {
+            SFXVolume = volume;
+            SetVolume(UI_Define.Sounds.SFX, volume);
+            SFXSliders[0].value = slider.value;
+            SFXSliders[1].value = slider.value;
+        }
+    }
+    void SliderInit() // 슬라이더에 playerPref 연동하고 값 적용
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            BGMSliders[i].value = BGMVolume;
+            SFXSliders[i].value = SFXVolume;
+        }
     }
 
     /// <summary>
@@ -145,7 +203,6 @@ public class SoundManager : MonoBehaviour
         }
         _audioClips.Clear();
     }
-
     public void ButtonClick()
     {
         Play(UI_Define.SFX.ButtonClick);

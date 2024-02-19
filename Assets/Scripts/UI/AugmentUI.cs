@@ -185,7 +185,7 @@ public class AugmentUI : MonoBehaviour
                 GameManager.instance.setHP(GameManager.instance.entireHP + 1);
                 break;
         }
-        SoundManager.instance.Play(UI_Define.SFX.Upgrade_select);
+        SoundManager.Instance.Play(UI_Define.SFX.Upgrade_select);
         if(augmentType == AugmentType.Reroll)
         {
             ShowAugment();

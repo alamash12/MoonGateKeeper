@@ -36,7 +36,7 @@ public class WideTower : MonoBehaviour
 
                 transform.parent.GetComponent<Animator>().SetTrigger(TowerData.TowerType.ToString());
                 animator.SetTrigger("Shoot");
-                SoundManager.instance.Play(UI_Define.SFX.Electric_turret);
+                SoundManager.Instance.Play(UI_Define.SFX.Electric_turret);
             }
 
             yield return new WaitForSeconds(1f / (AttackTerm * GameManager.instance.TowerAttackSpeed));

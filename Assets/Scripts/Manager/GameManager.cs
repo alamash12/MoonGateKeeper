@@ -51,14 +51,14 @@ public class GameManager : MonoBehaviour
     {
 
         UpdateLifeText();
-        SoundManager.instance.Play(UI_Define.BGM.MainBGM);
+        SoundManager.Instance.Play(UI_Define.BGM.MainBGM);
         bestStage = PlayerPrefs.GetInt("BestStage", 0);
     }
 
     public void StartStage()
     {
         Time.timeScale = 1f;
-        SoundManager.instance.Play(UI_Define.BGM.StageBGM);
+        SoundManager.Instance.Play(UI_Define.BGM.StageBGM);
 
         level++;
         nowStageText.text = $"STAGE {level}";
