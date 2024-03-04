@@ -96,11 +96,19 @@ public class GameManager : MonoBehaviour
     public void UpKillCount()
     {
         killCount++;
+        if (entireHP <= 0)
+        {
+            gameOver();
+            return;
+        }
         CheckStageEnd();
     }
     public void CheckStageEnd()
     {
-        if(killCount == NowWaveMonsterCount) { EndStage(); }
+        if(killCount == NowWaveMonsterCount) 
+        { 
+            EndStage(); 
+        }
     }
     void EndStage()
     {
@@ -158,6 +166,25 @@ public class GameManager : MonoBehaviour
 
         bestStageText.text = $"최고 기록 : STAGE {bestStage}";
 
+        MonsterSpawner.Instance.StopAllCoroutines();
+        CanvasManager.Instance.OpenGameover();
+
+        //level = 0;
+        //setHP(5);
+        //for (int i = 1; i < 5; i++)
+        //{
+        //    TowerGOs[i].SetActive(false);
+        //    TowerClass.Towers[i] = null;
+        //}
+        //TowerClass.Towers[0].TowerEffeciency = 4f;
+        //MonsterMoveSpeed = 1; TowerAttackSpeed = 1;
+        //NowTowerCount = 1;
+        //MonsterSpawner.Instance.StopAllCoroutines();
+        //CanvasManager.Instance.OpenGameover();
+    }
+    
+    public void SetDefault()
+    {
         level = 0;
         setHP(5);
         for (int i = 1; i < 5; i++)
@@ -168,11 +195,7 @@ public class GameManager : MonoBehaviour
         TowerClass.Towers[0].TowerEffeciency = 4f;
         MonsterMoveSpeed = 1; TowerAttackSpeed = 1;
         NowTowerCount = 1;
-        MonsterSpawner.Instance.StopAllCoroutines();
-        CanvasManager.Instance.OpenGameover();
     }
-    
-    
 
     public void TempMonSlow()
     {

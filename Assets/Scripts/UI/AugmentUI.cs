@@ -48,6 +48,8 @@ public class AugmentUI : MonoBehaviour
     /// </summary>
     void ShowAugment()
     {
+        if (GameManager.instance.entireHP == 0) return; // 마지막 몬스터가 몸박해서 라이프 0되는 경우의 예외처리
+        
         int[] AugmentArray = GetThreeValidNumbers(CheckValidNumber());
         for (int i = 0; i < 3; i++)
         {
