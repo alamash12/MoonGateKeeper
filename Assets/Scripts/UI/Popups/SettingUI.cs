@@ -34,8 +34,6 @@ public class SettingUI : UI_Base
         Bind<Button>(typeof(Buttons));
 
         BindEvent(Get<Button>((int)Buttons.CloseButton).gameObject, Close);
-       
-        gameObject.SetActive(false);
     }
 
     void Close(PointerEventData evt)
